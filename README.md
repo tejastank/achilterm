@@ -95,7 +95,5 @@ options:
    when there aren't any keypress.
 
 ## License
+Code are released under the GNU AGPLv3
 
-Achilterm files are released under the GNU AGPLv3 or above license.
-
-Achilterm codebase from Ajaxterm by Antony Lesuisse (email: al AT udev.org), License Public Domain.
