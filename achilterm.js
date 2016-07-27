@@ -1,5 +1,5 @@
 achilterm={};
-achilterm.Terminal_ctor=function(id,width,height) {
+achilterm.Terminal_ctor=function(id,width,height, user=false, password=false, ppk=false) {
 	var ie=0;
 	if(window.ActiveXObject)
 		ie=1;
@@ -271,7 +271,7 @@ achilterm.Terminal_ctor=function(id,width,height) {
 	}
 	init();
 }
-achilterm.Terminal=function(id,width,height) {
-	return new this.Terminal_ctor(id,width,height);
+achilterm.Terminal=function(id,width,height, user=false, password=false, ppk=false) {
+	return new this.Terminal_ctor(id,width,height, user=false, password=false, ppk=false);
 }
 
