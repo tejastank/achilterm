@@ -1,20 +1,19 @@
 # Web Based Terminal Access Control Solution, SnippetBucket.com
 
-Achilterm is a web based terminal forked from Ajaxterm which was inspired by Anyterm.
+Written in python (and some AJAX javascript for client side) and depends only on python2.5 or better.
 
-Achilterm is Ajaxterm ported from QWeb to WebOb and without Sarissa dependency.
+**very simple to install** on Linux, MacOS X, FreeBSD, Solaris, cygwin and any Unix that runs python2.5.
 
-Achilterm is written in python (and some AJAX javascript for client side) and depends only on python2.5 or better.
+Support & Implementation Powered By SnippetBucket.com
+Contact us: snippetbucket@gmail.com
+Skype: live.snippetbucket
 
-Achilterm is **very simple to install** on Linux, MacOS X, FreeBSD, Solaris, cygwin and any Unix that runs python2.5.
-
-Achilterm is developed by Florent Gallaire <fgallaire@gmail.com>.
 
 ## Download and Install
 
-To install Achilterm issue the following commands:
+To install Achilterm use following commands:
 ```
-git clone https://github.com/fgallaire/achilterm.git
+git clone https://github.com/tejastank/achilterm.git
 cd achilterm
 ./achilterm.py
 ```
@@ -22,11 +21,9 @@ Then point your browser to this URL : `http://localhost:8022/`
 
 ## Documentation and Caveats
 
- * Achilterm only support WebOb < 1.0
+ * Currently it only support latin1, if you use Ubuntu or any LANG==en_US.UTF-8 distribution don't forget to "unset LANG".
 
- * Achilterm only support latin1, if you use Ubuntu or any LANG==en_US.UTF-8 distribution don't forget to "unset LANG".
-
- * If run as root achilterm will run /bin/login, otherwise it will run ssh
+ * If run as root will run /bin/login, otherwise it will run ssh
    localhost. To use an other command use the -c option.
 
  * By default Achilterm only listen at `127.0.0.1:8022`. For remote access, it is
@@ -94,8 +91,5 @@ options:
    parallel connection for keypresses. The anyterm approch is better
    when there aren't any keypress.
 
-## License
 
-Achilterm files are released under the GNU AGPLv3 or above license.
-
-Achilterm codebase from Ajaxterm by Antony Lesuisse (email: al AT udev.org), License Public Domain.
+Don't worry much, its AGPLV3.0, Free Download, Free Use.
