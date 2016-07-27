@@ -150,10 +150,7 @@ achilterm.Terminal_ctor=function(id,width,height) {
 	}
 	function keypress(ev) {
 		if (!ev) var ev=window.event;
-//		s="kp keyCode="+ev.keyCode+" which="+ev.which+" shiftKey="+ev.shiftKey+" ctrlKey="+ev.ctrlKey+" altKey="+ev.altKey;
-//		debug(s);
-//		return false;
-//		else { if (!ev.ctrlKey || ev.keyCode==17) { return; }
+//		
 		var kc;
 		var k="";
 		if (ev.keyCode)
@@ -178,7 +175,7 @@ achilterm.Terminal_ctor=function(id,width,height) {
 			else if (kc==219) k=String.fromCharCode(0);  // Ctrl-@
 		} else if (ev.which==0) {
 			if (kc==9) k=String.fromCharCode(9);  // Tab
-			else if (kc==8) k=String.fromCharCode(127);  // Backspace
+			else if (kc==8){ k=String.fromCharCode(127); }// Backspace }
 			else if (kc==27) k=String.fromCharCode(27); // Escape
 			else {
 				if (kc==33) k="[5~";        // PgUp
@@ -213,6 +210,10 @@ achilterm.Terminal_ctor=function(id,width,height) {
 			else
 				k=String.fromCharCode(kc);
 		}
+		if(ev.keyCode == undefined){
+		    k=String.fromCharCode(127);
+		    history.pushState(null, document.title, location.href);
+		}
 		if(k.length) {
 //			queue(encodeURIComponent(k));
 			if(k=="+") {
@@ -240,6 +241,7 @@ achilterm.Terminal_ctor=function(id,width,height) {
 		}
 	}
 	function init() {
+		history.pushState(null, document.title, location.href);
 		sled.appendChild(document.createTextNode('\xb7'));
 		sled.className='off';
 		dstat.appendChild(sled);
@@ -264,6 +266,8 @@ achilterm.Terminal_ctor=function(id,width,height) {
 		document.onkeypress=keypress;
 		document.onkeydown=keydown;
 		timeout=window.setTimeout(update,100);
+		
+		window.addEventListener('popstate',keypress);
 	}
 	init();
 }
