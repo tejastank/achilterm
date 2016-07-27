@@ -1,4 +1,4 @@
-# Achilterm
+# Web Based Terminal Access Control Solution, SnippetBucket.com
 
 Achilterm is a web based terminal forked from Ajaxterm which was inspired by Anyterm.
 
