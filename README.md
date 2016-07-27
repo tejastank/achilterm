@@ -8,13 +8,16 @@ Achilterm is written in python (and some AJAX javascript for client side) and de
 
 Achilterm is **very simple to install** on Linux, MacOS X, FreeBSD, Solaris, cygwin and any Unix that runs python2.5.
 
-Achilterm is developed by Florent Gallaire <fgallaire@gmail.com>.
+Support & Implementation Powered By SnippetBucket.com
+Contact us: snippetbucket@gmail.com
+Skype: live.snippetbucket
+
 
 ## Download and Install
 
 To install Achilterm issue the following commands:
 ```
-git clone https://github.com/fgallaire/achilterm.git
+git clone https://github.com/tejastank/achilterm.git
 cd achilterm
 ./achilterm.py
 ```
