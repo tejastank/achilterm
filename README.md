@@ -91,6 +91,5 @@ options:
    parallel connection for keypresses. The anyterm approch is better
    when there aren't any keypress.
 
-## License
-Code are released under the GNU AGPLv3
 
+Don't worry much, its AGPLV3.0, Free Download, Free Use.
