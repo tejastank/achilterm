@@ -547,15 +547,18 @@ class AchilTerm:
 		return res(environ, start_response)
 
 def main():
+	
 	parser = optparse.OptionParser()
+	parser.add_option("-s", "--host", dest="host", default="localhost", help="Set the localhost or 0.0.0.0 or local-ip-address")
 	parser.add_option("-p", "--port", dest="port", default="8022", help="Set the TCP port (default: 8022)")
-	parser.add_option("-c", "--command", dest="cmd", default=None,help="set the command (default: /bin/login or ssh localhost)")
+	parser.add_option("-c", "--command", dest="cmd", default=None,help="set the command (default: /bin/login or ssh localhost or ssh remote-ip-address)")
 	parser.add_option("-l", "--log", action="store_true", dest="log",default=0,help="log requests to stderr (default: quiet mode)")
 	parser.add_option("-d", "--daemon", action="store_true", dest="daemon", default=0, help="run as daemon in the background")
 	parser.add_option("-P", "--pidfile",dest="pidfile",default="/var/run/achilterm.pid",help="set the pidfile (default: /var/run/achilterm.pid)")
 	parser.add_option("-i", "--index", dest="index_file", default="achilterm.html",help="default index file (default: achilterm.html)")
 	parser.add_option("-u", "--uid", dest="uid", help="Set the daemon's user id")
 	(o, a) = parser.parse_args()
+	
 	if o.daemon:
 		pid=os.fork()
 		if pid == 0:
@@ -576,13 +579,13 @@ def main():
 				file(o.pidfile,'w+').write(str(pid)+'\n')
 			except:
 				pass
-			print 'Achilterm at http://localhost:%s/ pid: %d' % (o.port,pid)
+			print 'Achilterm at http://%s:%s/ pid: %d' % (o.host,o.port,pid)
 			sys.exit(0)
 	else:
-		print 'Achilterm at http://localhost:%s/' % o.port
+		print 'Achilterm at http://%s:%s/' % (o.host,o.port)
 	at=AchilTerm(o.cmd,o.index_file)
 	try:
-		wsgiref.simple_server.make_server('localhost', int(o.port), at).serve_forever()
+		wsgiref.simple_server.make_server(o.host, int(o.port), at).serve_forever()
 	except KeyboardInterrupt,e:
 		sys.excepthook(*sys.exc_info())
 	at.multi.die()
